@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name=" Application Test Automation Test Suite" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="com.commerce.ExtentReportListner.ExtentReporterNG" />
+    </listeners>
+
+    <test name="Test Shopify" preserve-order="true" >
+        <parameter name="myBrowser" value="FF"></parameter>
+        <classes>
+            <class name="com.commerce.test"></class>
+        </classes>
+    </test>
+
+    <test name="Test Shopify FF" preserve-order="true" >
+        <parameter name="myBrowser" value="chrome"></parameter>
+        <classes>
+            <class name="com.commerce.test"></class>
+        </classes>
+    </test>
+</suite>
