@@ -7,10 +7,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import static org.testng.Assert.*;
 
 public class BasePage  extends BaseTest {
 
     final int DEFAULT_WAIT_TIME_FOR_ELEMENT = 30;
+    WebDriverWait wait = new WebDriverWait(driver, DEFAULT_WAIT_TIME_FOR_ELEMENT);
 
     public void assertCurrentPage(By pageIdentifier) {
         try {
@@ -28,6 +32,10 @@ public class BasePage  extends BaseTest {
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
+    public void checkElementPresence(By locator) {
+        assertTrue(driver.findElement(locator).isDisplayed());
+    }
+
 
     public void waitForNotPresence(By locator) {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
@@ -39,9 +47,22 @@ public class BasePage  extends BaseTest {
     }
 
 
-    public void enterText(By locator, String values) {
+    public void setText(By locator, String values) {
          driver.findElement(locator).sendKeys(values);
 
+    }
+
+    public String getText(By locator) {
+       return driver.findElement(locator).getText();
+    }
+
+
+    public void validateText(By locator,String text) {
+        assertEquals(getText(locator), text);
+    }
+
+    public void checkPlaceHolderText(By locator, String text, String attribute) {
+        Assert.assertEquals(text, driver.findElement(locator).getAttribute(attribute));
     }
 
 

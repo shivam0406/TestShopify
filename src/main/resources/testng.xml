@@ -6,17 +6,30 @@
         <listener class-name="com.commerce.ExtentReportListner.ExtentReporterNG" />
     </listeners>
 
-    <test name="Test Shopify" preserve-order="true" >
+    <test name="Test Shopify FireFox" preserve-order="true" >
         <parameter name="myBrowser" value="FF"></parameter>
         <classes>
-            <class name="com.commerce.test"></class>
+            <class name="com.commerce.HomePageTest">
+                <methods>
+                    <include name="validateLandingOfHomePage"/>
+                </methods>
+            </class>
+            <class name="com.commerce.LoginPageTest">
+                <methods>
+                    <include name="doLogin"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
-    <test name="Test Shopify FF" preserve-order="true" >
-        <parameter name="myBrowser" value="chrome"></parameter>
-        <classes>
-            <class name="com.commerce.test"></class>
-        </classes>
-    </test>
+<!--    <test name="Test Shopify Chrome" preserve-order="true" >-->
+<!--        <parameter name="myBrowser" value="chrome"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.commerce.HomePageTest">-->
+<!--                <methods>-->
+<!--                    <include name="validateLandingOfHomePage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
