@@ -28,12 +28,12 @@ public class BaseTest {
 //        String browserName = prop.getProperty("browser");
 
         if (myBrowser.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "/Users/shivamgupta/Desktop/chromedriver");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/chromedriver");
             driver = new ChromeDriver();
 //            ChromeOptions chromeOptions = new ChromeOptions();
 //            chromeOptions.addArguments()
         } else if (myBrowser.equalsIgnoreCase("FF")) {
-            System.setProperty("webdriver.gecko.driver", "/Users/shivamgupta/Desktop/geckodriver");
+            System.setProperty("webdriver.gecko.driver",  System.getProperty("user.dir") + "/src/test/resources/geckodriver");
             driver = new FirefoxDriver();
         }
 

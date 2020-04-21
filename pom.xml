@@ -7,18 +7,11 @@
     <groupId>org.example</groupId>
     <artifactId>TestVagrant</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
+    <properties>
+        <surefire.version>2.19.1</surefire.version>
+        <maven.compiler.version>3.6.1</maven.compiler.version>
+    </properties>
 
     <name>Assignment Test</name>
 <dependencies>
@@ -118,4 +111,68 @@
 
 </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <scope>compile</scope>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+
+                <configuration>
+                    <!-- This is to skip tests during normal maven execution
+                    (e.g. mvn package) and run them in integration-test -->
+                    <!-- testng xml suite file to be used for test execution -->
+                    <suiteXmlFiles>
+                        <suitexmlfile>src/test/resources/${suiteXmlFile}</suitexmlfile>
+                    </suiteXmlFiles>
+                    <reportsDirectory>${project.basedir}/target</reportsDirectory>
+                    <!--   <testFailureIgnore>true</testFailureIgnore>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>res/snapshot</directory>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
