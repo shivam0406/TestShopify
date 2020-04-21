@@ -6,40 +6,40 @@
         <listener class-name="com.commerce.ExtentReportListner.ExtentReporterNG" />
     </listeners>
 
-    <test name="Test Shopify Chrome" preserve-order="true" >
-        <parameter name="myBrowser" value="chrome"></parameter>
-        <classes>
-            <class name="com.commerce.HomePageTest">
-                <methods>
-                    <include name="validateLandingOfHomePage"/>
-                </methods>
-            </class>
-            <class name="com.commerce.LoginPageTest">
-                <methods>
-                    <include name="doLogin"/>
-                </methods>
-            </class>
+<!--    <test name="Test Shopify Chrome" preserve-order="true" >-->
+<!--        <parameter name="myBrowser" value="chrome"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.commerce.HomePageTest">-->
+<!--                <methods>-->
+<!--                    <include name="validateLandingOfHomePage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="com.commerce.LoginPageTest">-->
+<!--                <methods>-->
+<!--                    <include name="doLogin"/>-->
+<!--                </methods>-->
+<!--            </class>-->
 
-            <class name="com.commerce.LoggedInPageTest">
-                <methods>
-                    <include name="doLogin"/>
-                </methods>
-            </class>
+<!--            <class name="com.commerce.LoggedInPageTest">-->
+<!--                <methods>-->
+<!--                    <include name="doLogin"/>-->
+<!--                </methods>-->
+<!--            </class>-->
 
-            <class name="com.commerce.PDPPageTest">
-                <methods>
-                    <include name="doATC"/>
-                </methods>
-            </class>
+<!--            <class name="com.commerce.PDPPageTest">-->
+<!--                <methods>-->
+<!--                    <include name="doATC"/>-->
+<!--                </methods>-->
+<!--            </class>-->
 
-            <class name="com.commerce.CartPageTest">
-                <methods>
-                    <include name="cartTest"/>
-                    <include name="test2"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--            <class name="com.commerce.CartPageTest">-->
+<!--                <methods>-->
+<!--                    <include name="cartTest"/>-->
+<!--                    <include name="test2"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
     <test name="Test Shopify FireFox" preserve-order="true" >
