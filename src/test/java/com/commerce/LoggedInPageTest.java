@@ -1,25 +1,23 @@
 package com.commerce;
 
-import com.commerce.pages.HomePage;
+import com.commerce.pages.LoggedInPage;
 import com.commerce.pages.LoginPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class LoginPageTest extends BaseTest {
+public class LoggedInPageTest extends BaseTest {
 
-    LoginPage loginPage;
+    LoggedInPage loggedInPage;
 
     @BeforeClass
     public void beforeClass() {
-        loginPage = new LoginPage();
+        loggedInPage = new LoggedInPage();
     }
 
     @Test(threadPoolSize = 2)
     public void doLogin() throws InterruptedException {
-        loginPage
-                .checkLoginPageElement()
-                .enterPassword();
+        loggedInPage
+                .checkLoggedInPageElement()
+                .getProduct();
     }
-
-
 }

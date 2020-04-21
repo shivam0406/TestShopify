@@ -24,7 +24,6 @@ public class BaseTest {
     public static EventFiringWebDriver e_driver;
     public static WebEventListener eventListener;
 
-
     public static void initialization(String myBrowser) {
 //        String browserName = prop.getProperty("browser");
 
