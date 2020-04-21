@@ -41,7 +41,7 @@ public class CartPage extends BasePage {
 
     public CartPage removeProductFromCart() {
         clickElement(REMOVE_BUTTON);
-        checkElementPresence(CART_REMOVE_MESSAGE);
+        waitForPresence(CART_REMOVE_MESSAGE,10);
         return this;
     }
 

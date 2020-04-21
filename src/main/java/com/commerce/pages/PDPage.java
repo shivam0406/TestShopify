@@ -65,11 +65,29 @@ public class PDPage extends BasePage {
         return this;
     }
 
-    public PDPage moveToCartPage() throws InterruptedException {
-        Thread.sleep(5000);
+    public PDPage moveToCartPage()  {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         clickElement(VIEW_CART_BUTTON);
         return this;
     }
+
+
+    public PDPage selectSomeOtherColor() {
+        selectOptionFormDropDown(COLOR_DROP_DOWN, "Silver");
+        return this;
+    }
+
+    public PDPage selectSomeOtherSize() {
+        selectOptionFormDropDown(SIZE_DROP_DOWN, "M");
+        return this;
+    }
+
+
+
 
 
 

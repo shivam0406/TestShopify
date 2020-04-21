@@ -1,11 +1,11 @@
 package com.commerce;
 
-import com.commerce.pages.HomePage;
+import com.commerce.pages.CartPage;
 import com.commerce.pages.PDPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class PDPPageTest extends BaseTest {
+public class searchToPDPTest extends BaseTest {
 
     PDPage pdPage;
 
@@ -15,16 +15,14 @@ public class PDPPageTest extends BaseTest {
     }
 
     @Test
-    public void doATC() throws InterruptedException {
+    public void changeProductVariant() {
         pdPage
-                .getProductName()
-                .getProductPrice()
-                .checkElementOnPDP()
-                .checkProductSelectedColor()
-                .checkProductSelectedSize()
+                .selectSomeOtherColor()
+                .selectSomeOtherSize()
                 .addProductToCart()
                 .checkProductInfoInPopup()
                 .moveToCartPage();
-
     }
+
+
 }

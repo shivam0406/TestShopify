@@ -12,13 +12,13 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.*;
 
 public class BasePage  extends BaseTest {
 
     final int DEFAULT_WAIT_TIME_FOR_ELEMENT = 30;
-   WebDriver driver = getDriver();
     WebDriverWait wait = new WebDriverWait(driver, DEFAULT_WAIT_TIME_FOR_ELEMENT);
     LinkedHashMap<String, String> product = new LinkedHashMap<String, String>();
     public void assertCurrentPage(By pageIdentifier) {
@@ -38,6 +38,7 @@ public class BasePage  extends BaseTest {
     }
 
     public void checkElementPresence(By locator) {
+        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
         assertTrue(driver.findElement(locator).isDisplayed());
     }
 
@@ -89,10 +90,21 @@ public class BasePage  extends BaseTest {
         pclass.get(1).click();
     }
 
+    public void clickFirstProductOfPLP() {
+        List<WebElement> plp = driver.findElements(By.xpath("//ul[@class='page-width list-view-items']/child::li/child::div"));
+        plp.get(0).click();
+    }
+
 
     public String getSelectedOptionFromDropDown (By locator) {
         Select select =new Select(driver.findElement(locator));
         return select.getFirstSelectedOption().getText();
+    }
+
+    public void selectOptionFormDropDown(By locator, String value) {
+        Select select =new Select(driver.findElement(locator));
+        select.selectByValue(value);
+        assertEquals(getSelectedOptionFromDropDown(locator), value);
     }
 
     public void productTotal(By locator1, By locator2, By locator3) {
@@ -101,6 +113,7 @@ public class BasePage  extends BaseTest {
         float TotalPrice = price * count;
         System.out.println("Our Total Price is" + TotalPrice);
         float finalCartPrice = getPrice(locator3);
+        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
         Assert.assertEquals(finalCartPrice, TotalPrice);
     }
 
@@ -118,7 +131,7 @@ public class BasePage  extends BaseTest {
 
     public void changeCount(By locator, int count) {
         setCount(locator, count);
-
     }
+
 
 }

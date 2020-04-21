@@ -12,7 +12,12 @@ public class PLPPage extends BasePage {
 
 
     public PLPPage(){
-        assertCurrentPage(PRODUCT_COUNT);
+
+    }
+
+    public PLPPage landOnPDPForSearchPage() {
+        clickFirstProductOfPLP();
+        return this;
     }
 
 

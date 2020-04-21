@@ -14,7 +14,7 @@ public class LoginPageTest extends BaseTest {
         loginPage = new LoginPage();
     }
 
-    @Test(threadPoolSize = 2)
+    @Test
     public void doLogin() throws InterruptedException {
         loginPage
                 .checkLoginPageElement()

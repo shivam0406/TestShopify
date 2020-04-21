@@ -13,7 +13,7 @@ public class HomePageTest extends BaseTest {
          homePage = new HomePage();
     }
 
-    @Test(threadPoolSize = 2)
+    @Test
     public void validateLandingOfHomePage() {
         homePage
                 .checkLOGOText()

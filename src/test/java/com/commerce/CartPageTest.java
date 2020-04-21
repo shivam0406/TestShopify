@@ -13,16 +13,22 @@ public class CartPageTest extends BaseTest {
         cartPage = new CartPage();
     }
 
-    @Test(threadPoolSize = 2)
+    @Test
     public void cartTest() {
         cartPage
                 .verifyProductTotal();
     }
 
 
-    @Test(threadPoolSize = 2)
+    @Test
     public void test2() {
         cartPage
                 .changeCountAndGetProductTotal();
+    }
+
+    @Test
+    public void clearCart() {
+        cartPage
+                .removeProductFromCart();
     }
 }

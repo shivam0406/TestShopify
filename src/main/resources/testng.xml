@@ -72,6 +72,23 @@
                 <methods>
                     <include name="cartTest"/>
                     <include name="test2"/>
+                    <include name="clearCart"/>
+                </methods>
+            </class>
+
+            <class name="com.commerce.SearchPageTest">
+                <methods>
+                    <include name="searchProduct"/>
+                </methods>
+            </class>
+            <class name="com.commerce.PLPageTest">
+                <methods>
+                    <include name="landOnProductDescPage"/>
+                </methods>
+            </class>
+            <class name="com.commerce.searchToPDPTest">
+                <methods>
+                    <include name="changeProductVariant"/>
                 </methods>
             </class>
         </classes>
