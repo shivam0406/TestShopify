@@ -21,7 +21,7 @@ public class CartPageTest extends BaseTest {
 
 
     @Test
-    public void test2() {
+    public void verifyCartOnQuantity() {
         cartPage
                 .changeCountAndGetProductTotal();
     }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name=" Application Test Automation Test Suite" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="com.commerce.ExtentReportListner.ExtentReporterNG" />
+    </listeners>
+    <test name="Test Shopify FireFox" preserve-order="true" >
+        <parameter name="myBrowser" value="FF"></parameter>
+        <classes>
+            <class name="com.commerce.HomePageTest">
+                <methods>
+                    <include name="validateLandingOfHomePage"/>
+                </methods>
+            </class>
+            <class name="com.commerce.LoginPageTest">
+                <methods>
+                    <include name="doLogin"/>
+                </methods>
+            </class>
+
+            <class name="com.commerce.LoggedInPageTest">
+                <methods>
+                    <include name="landOnPDPFromFeaturedProduct"/>
+                </methods>
+            </class>
+
+            <class name="com.commerce.PDPPageTest">
+                <methods>
+                    <include name="doATC"/>
+                </methods>
+            </class>
+
+            <class name="com.commerce.CartPageTest">
+                <methods>
+                    <include name="cartTest"/>
+                    <include name="verifyCartOnQuantity"/>
+                    <include name="clearCart"/>
+                </methods>
+            </class>
+
+            <class name="com.commerce.SearchPageTest">
+                <methods>
+                    <include name="searchProduct"/>
+                </methods>
+            </class>
+            <class name="com.commerce.PLPageTest">
+                <methods>
+                    <include name="landOnProductDescPage"/>
+                </methods>
+            </class>
+            <class name="com.commerce.searchToPDPTest">
+                <methods>
+                    <include name="changeProductVariant"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

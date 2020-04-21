@@ -15,7 +15,7 @@ public class LoggedInPageTest extends BaseTest {
     }
 
     @Test
-    public void doLogin() throws InterruptedException {
+    public void landOnPDPFromFeaturedProduct() throws InterruptedException {
         loggedInPage
                 .checkLoggedInPageElement()
                 .getProduct();
