@@ -18,6 +18,7 @@ import static org.testng.Assert.*;
 public class BasePage  extends BaseTest {
 
     final int DEFAULT_WAIT_TIME_FOR_ELEMENT = 30;
+   WebDriver driver = getDriver();
     WebDriverWait wait = new WebDriverWait(driver, DEFAULT_WAIT_TIME_FOR_ELEMENT);
     LinkedHashMap<String, String> product = new LinkedHashMap<String, String>();
     public void assertCurrentPage(By pageIdentifier) {
